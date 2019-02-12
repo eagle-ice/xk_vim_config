@@ -23,9 +23,15 @@ fi
 echo "\"vimrc plug config begin!!!" > ${VIM_CONFIG_PATH}
 echo "call plug#begin('~/.vim/plugged')" >> ${VIM_CONFIG_PATH}
 echo "\"插件区" >> ${VIM_CONFIG_PATH}
-
-
 echo "call plug#end()" >> ${VIM_CONFIG_PATH}
 echo "\"vimrc plug config end!!!" >> ${VIM_CONFIG_PATH}
 
-source ./xk_vim_config/gtags.sh ${VIM_CONFIG_PATH}
+source ./xk_vim_config/base_config.sh ${VIM_CONFIG_PATH}
+
+for config_file in `find ./xk_vim_config/ -name "*.sh"`
+do
+	if [ x"$config_file" != x"./xk_vim_config/base_config.sh" ]; then
+		echo $config_file
+		source $config_file ${VIM_CONFIG_PATH}
+	fi
+done
