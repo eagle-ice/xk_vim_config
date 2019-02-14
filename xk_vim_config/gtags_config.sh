@@ -2,16 +2,17 @@
 
 GOLBAL_NAME=global-6.6
 
-if [ ! -f $HOME/${GOLBAL_NAME}.tar.gz ]; then
-    wget https://ftp.gnu.org/pub/gnu/global/${GOLBAL_NAME}.tar.gz -P $HOME
+if [ ! -f $HOME/.vim/source/${GOLBAL_NAME}.tar.gz ]; then
+    wget https://ftp.gnu.org/pub/gnu/global/${GOLBAL_NAME}.tar.gz -P $HOME/.vim/source/
 fi
 
 if [ ! -d $HOME/global/ ]; then
-    cd $HOME;mkdir global
+    #mkdir $HOME/global
+    cd $HOME/.vim/source/
     tar xvf ${GOLBAL_NAME}.tar.gz
     cd ${GOLBAL_NAME}
-    ./configure --with-sqlite3 --prefix=/net/szswork02/work/xk.yang/global
-    make;make install
+    ./configure --with-sqlite3 --prefix=$HOME/global
+    make -j;make install
     if [ ! -d $HOME/.vim/plugin ]; then
         mkdir -p $HOME/.vim/plugin
     fi
