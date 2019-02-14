@@ -11,9 +11,13 @@ if [ ! -d $HOME/global/ ]; then
     tar xvf ${GOLBAL_NAME}.tar.gz
     cd ${GOLBAL_NAME}
     ./configure --with-sqlite3 --prefix=/net/szswork02/work/xk.yang/global
+    make;make install
+    if [ ! -d $HOME/.vim/plugin ]; then
+        mkdir -p $HOME/.vim/plugin
+    fi
+    cp $HOME/global/share/gtags/gtags*.vim $HOME/.vim/plugin
     echo "export PATH=\$HOME/global/bin:\$PATH" >> $HOME/.bashrc
 fi
-
 
 #要在sed 中输入单双引号,需要用另外一个包裹,或者外围使用其他的
 #以下两种都能达到目的
