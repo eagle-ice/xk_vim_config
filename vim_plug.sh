@@ -2,7 +2,8 @@
 
 if [ ! -d ${HOME}/.vim/source ]; then
     mkdir -p ${HOME}/.vim/source;
-    if [ ! -d ${HOME}/.vim/source/vim ]; then
+fi
+if [ ! -d ${HOME}/.vim/source/vim ]; then
         #sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev
         #libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev
         #ruby-dev lua5.1 liblua5.1-dev libperl-dev git
@@ -13,9 +14,8 @@ if [ ! -d ${HOME}/.vim/source ]; then
         ./configure --with-features=huge --enable-python3interp --enable-pythoninterp  --enable-rubyinterp --enable-luainterp --enable-perlinterp  --enable-multibyte --enable-cscope --prefix=${HOME}/vim/
         #巨大编译并不能保证python 支持, 所以需要这组配置去掉了python的路径, 如有python 没有在环境变量中,需要增加
         #./configure --with-features=huge --prefix=${HOME}/vim/
-        make -j;make install
+        make;make install
         echo "export PATH=\$HOME/vim/bin:\$PATH" >> $HOME/.bashrc
-    fi
 fi
 
 cd ${HOME}/.vim/
