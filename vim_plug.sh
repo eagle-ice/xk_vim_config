@@ -13,7 +13,7 @@ if [ ! -d ${HOME}/.vim/source ]; then
         ./configure --with-features=huge --enable-python3interp --enable-pythoninterp  --enable-rubyinterp --enable-luainterp --enable-perlinterp  --enable-multibyte --enable-cscope --prefix=${HOME}/vim/
         #巨大编译并不能保证python 支持, 所以需要这组配置去掉了python的路径, 如有python 没有在环境变量中,需要增加
         #./configure --with-features=huge --prefix=${HOME}/vim/
-        make;make install
+        make -j;make install
         echo "export PATH=\$HOME/vim/bin:\$PATH" >> $HOME/.bashrc
     fi
 fi
@@ -52,6 +52,6 @@ for config_file in `find ./xk_vim_config/ -name "*.sh"`
 do
     if [ x"$config_file" != x"./xk_vim_config/base_config.sh" ]; then
         echo $config_file
-        source $config_file ${VIM_CONFIG_PATH}
+        bash ./$config_file ${VIM_CONFIG_PATH}
     fi
 done
