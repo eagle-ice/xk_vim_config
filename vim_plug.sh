@@ -9,7 +9,10 @@ if [ ! -d ${HOME}/.vim/source ]; then
         cd ${HOME}/.vim/source
         git clone https://github.com/vim/vim.git vim
         cd ${HOME}/.vim/source/vim
-        ./configure --with-features=huge --prefix=${HOME}/vim/
+        #./configure --with-features=huge --enable-python3interp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --enable-rubyinterp --enable-luainterp --enable-perlinterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu/ --enable-multibyte --enable-cscope
+        ./configure --with-features=huge --enable-python3interp --enable-pythoninterp  --enable-rubyinterp --enable-luainterp --enable-perlinterp  --enable-multibyte --enable-cscope --prefix=${HOME}/vim/
+        #巨大编译并不能保证python 支持, 所以需要这组配置去掉了python的路径, 如有python 没有在环境变量中,需要增加
+        #./configure --with-features=huge --prefix=${HOME}/vim/
         make;make install
         echo "export PATH=\$HOME/vim/bin:\$PATH" >> $HOME/.bashrc
     fi
