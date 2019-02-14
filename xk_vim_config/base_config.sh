@@ -15,11 +15,14 @@ echo "set encoding=utf-8" >> $1
 echo "\" 去掉vi一致性模式，避免以前版本的一些bug和局限" >> $1
 echo "set nocompatible" >> $1
 
+echo "filetype on" >> $1
+echo "filetype plugin on" >> $1
 echo "" >> $1
 echo "if has(\"autocmd\")" >> $1
 echo "  \" au BufReadPost * if line(\"\'\\\"\") > 1 && line(\"\'\\\"\") <= line(\"$\") | exe \"normal! g\'\\\"\" | endif" >> $1
 echo "  au BufReadPost * if line(\"\'\\\"\") > 0|if line(\"\'\\\"\") <= line(\"$\")|exe(\"norm \'\\\"\")|else|exe \"norm $\"|endif|endif" >> $1
 echo "  \"have Vim load indentation rules and plugins according to the detected filetype" >> $1
+echo "  filetype plugin indent on" >> $1
 echo "endif" >> $1
 
 #echo "毫无乱用" >> $1
