@@ -1,18 +1,21 @@
 #!/bin/bash
 
-GOLBAL_NAME=global-6.6
+GOLBAL_NAME=global-6.6.3
 
 if [ ! -f $HOME/.vim/source/${GOLBAL_NAME}.tar.gz ]; then
     wget https://ftp.gnu.org/pub/gnu/global/${GOLBAL_NAME}.tar.gz -P $HOME/.vim/source/
 fi
 
 if [ ! -d $HOME/global/ ]; then
-    #mkdir $HOME/global
+    mkdir $HOME/global
+fi
+
+if [ ! -d $HOME/.vim/source/${GOLBAL_NAME} ]; then
     cd $HOME/.vim/source/
     tar xvf ${GOLBAL_NAME}.tar.gz
     cd ${GOLBAL_NAME}
     ./configure --with-sqlite3 --prefix=$HOME/global
-    make -j;make install
+    make;make install
     if [ ! -d $HOME/.vim/plugin ]; then
         mkdir -p $HOME/.vim/plugin
     fi
