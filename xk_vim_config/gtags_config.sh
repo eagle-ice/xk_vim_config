@@ -38,6 +38,10 @@ sed -i "/call plug\#end/i \"gtags 相关插件 end" $1
 echo "" >> $1
 echo "\"gtags config start $1" >> $1
 
+echo "\"vimrc 中设置环境变量启用 pygments" >> $1
+echo "let \$GTAGSLABEL = 'native-pygments'" >> $1
+echo "let \$GTAGSCONF = '\$HOME/global/share/gtags/gtags.conf'" >> $1
+
 echo "\" gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名" >> $1
 echo "let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']" >> $1
 echo "" >> $1
@@ -61,8 +65,8 @@ echo "let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']" >> $1
 echo "let g:gutentags_ctags_extra_args += ['--c-kinds=+px']" >> $1
 echo "" >> $1
 echo "\" 如果使用 universal ctags 需要增加下面一行" >> $1
-echo "\"let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']" >> $1
-echo "\" 禁用 gutentags 自动加载 gtags 数据库的行为" >> $1
+echo "let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']" >> $1
+echo "\" 禁用 gutentags 自动加载 gtags 数据库的行为, 避免多个项目数据库相互干扰,使用plus插件解决问题" >> $1
 echo "let g:gutentags_auto_add_gtags_cscope = 0" >> $1
 echo "" >> $1
 echo "\"gtags config end $1" >> $1
