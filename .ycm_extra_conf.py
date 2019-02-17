@@ -62,6 +62,8 @@ flags = [
 '-isystem',
 'cpp/pybind11',
 '-isystem',
+'/usr/include/c++/5/',
+'-isystem',
 'cpp/whereami',
 '-isystem',
 'cpp/BoostParts',
@@ -89,8 +91,6 @@ get_python_inc(),
 '/usr/lib/gcc/x86_64-linux-gnu/5.4.0/include',
 '-isystem',
 '/usr/include/',
-'-isystem',
-'/usr/include/c++/5/',
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,

@@ -3,6 +3,7 @@
 sed -i '/call plug\#end/{x;p;x}' $1
 sed -i "/call plug\#end/i \"YouCompleteMe 插件 start" $1
 sed -i "/call plug\#end/i Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }" $1
+sed -i "/call plug\#end/i Plug 'jiangmiao/auto-pairs'" $1
 sed -i "/call plug\#end/i \"YouCompleteMe 插件 end" $1
 
 echo "" >> $1

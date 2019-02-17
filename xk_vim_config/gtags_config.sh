@@ -33,14 +33,15 @@ sed -i '/call plug\#end/{x;p;x}' $1
 sed -i "/call plug\#end/i \"gtags 相关插件 start" $1
 sed -i "/call plug\#end/i Plug 'ludovicchabant/vim-gutentags'" $1
 sed -i "/call plug\#end/i Plug 'skywind3000/gutentags_plus'" $1
+sed -i "/call plug\#end/i Plug 'skywind3000/vim-preview'" $1
 sed -i "/call plug\#end/i \"gtags 相关插件 end" $1
 
 echo "" >> $1
 echo "\"gtags config start $1" >> $1
 
-echo "\"vimrc 中设置环境变量启用 pygments" >> $1
-echo "let \$GTAGSLABEL = 'native-pygments'" >> $1
-echo "let \$GTAGSCONF = '\$HOME/global/share/gtags/gtags.conf'" >> $1
+echo "\"vimrc 中设置环境变量启用 pygments 暂时还不知道怎么启用，先注释掉等以后有需要再说" >> $1
+echo "\"let \$GTAGSLABEL = 'native-pygments'" >> $1
+echo "\"let \$GTAGSCONF = '\$HOME/global/share/gtags/gtags.conf'" >> $1
 
 echo "\" gutentags 搜索工程目录的标志，当前文件路径向上递归直到碰到这些文件/目录名" >> $1
 echo "let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']" >> $1
@@ -69,4 +70,10 @@ echo "let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']" >> $1
 echo "\" 禁用 gutentags 自动加载 gtags 数据库的行为, 避免多个项目数据库相互干扰,使用plus插件解决问题" >> $1
 echo "let g:gutentags_auto_add_gtags_cscope = 0" >> $1
 echo "" >> $1
+echo "\"P 预览 大p关闭暂时 还没搞好 先注释掉 后续在打开" >> $1
+echo "\"autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr> " >> $1
+echo "\"autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr> " >> $1
+echo "\"noremap <Leader>u :PreviewScroll -1<cr> \" 往上滚动预览窗口" >> $1
+echo "\"noremap <leader>d :PreviewScroll +1<cr> \" 往下滚动预览窗口" >> $1
+
 echo "\"gtags config end $1" >> $1
