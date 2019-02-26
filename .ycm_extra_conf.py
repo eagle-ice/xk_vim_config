@@ -62,8 +62,6 @@ flags = [
 '-isystem',
 'cpp/pybind11',
 '-isystem',
-'/usr/include/c++/5/',
-'-isystem',
 'cpp/whereami',
 '-isystem',
 'cpp/BoostParts',
@@ -74,7 +72,7 @@ get_python_inc(),
 '-isystem',
 'cpp/llvm/tools/clang/include',
 '-I',
-'cpp/ycm',
+'./include',
 '-I',
 'cpp/ycm/ClangCompleter',
 '-isystem',
@@ -91,6 +89,30 @@ get_python_inc(),
 '/usr/lib/gcc/x86_64-linux-gnu/5.4.0/include',
 '-isystem',
 '/usr/include/',
+'-isystem',
+'/usr/include/c++/4.8/',
+'-isystem',
+'/usr/include/linux/',
+]
+
+# Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
+# which is required for compiling the standard library, and to 'c++11' for older
+# versions.
+if platform.system() != 'Windows':
+  flags.append( '-std=c++11' )
+
+
+# Set this to the absolute path to the folder (NOT the file!) containing the
+# compile_commands.json file to use that instead of 'flags'. See here for
+# more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html
+#
+# You can get CMake to generate this file for you by adding:
+#   set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
+# to your CMakeLists.txt file.
+#
+# Most projects will NOT need to set this to anything; you can just change the
+# 'flags' list of compilation flags. Notice that YCM itself uses that approach.
+compilation_database_folder = ''
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,

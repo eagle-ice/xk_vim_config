@@ -33,6 +33,10 @@ echo "\"在字符串输入中也能补全" >> $1
 echo "let g:ycm_complete_in_strings = 1" >> $1
 echo "\"注释和字符串中的文字也会被收入补全" >> $1
 echo "let g:ycm_collect_identifiers_from_comments_and_strings = 0" >> $1
+
+echo "\"去掉语法检测并高亮" >> $1
+echo "g:ycm_enable_diagnostic_signs = 0" >> $1
+echo "g:ycm_enable_diagnostic_highlighting = 0" >> $1
 echo "" >> $1
 
 echo "function! s:CustomizeYcmQuickFixWindow()" >> $1
