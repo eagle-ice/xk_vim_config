@@ -66,7 +66,7 @@ echo "let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']" >> $1
 echo "let g:gutentags_ctags_extra_args += ['--c-kinds=+px']" >> $1
 echo "" >> $1
 echo "\" 如果使用 universal ctags 需要增加下面一行" >> $1
-echo "let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']" >> $1
+echo "\"let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']" >> $1
 echo "\" 禁用 gutentags 自动加载 gtags 数据库的行为, 避免多个项目数据库相互干扰,使用plus插件解决问题" >> $1
 echo "let g:gutentags_auto_add_gtags_cscope = 0" >> $1
 echo "" >> $1
