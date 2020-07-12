@@ -36,9 +36,6 @@ set wrap
 " 控制台响铃
 set vb t_vb=
 
-"突出显示当前行
-set cursorline
-
 " 光标从行首和行末时可以跳到另一行去
 set whichwrap=b,s,<,>,[,]
 " 插入模式下使用 <BS>、<Del> <C-W> <C-U>
@@ -73,6 +70,12 @@ syntax on
 
 "保存文件的格式顺序
 set fileformats=unix
+
+" 不要备份文件（根据自己需要取舍）
+set nobackup
+" 不要生成swap文件，当buffer被丢弃的时候隐藏它
+"setlocal noswapfile
+set noswapfile
 
 " 加载man 手册
 runtime! ftplugin/man.vim
