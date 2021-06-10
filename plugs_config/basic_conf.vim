@@ -3,6 +3,14 @@
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set termencoding=utf-8
 set encoding=utf-8
+if has('gui_running')
+    set guioptions-=T  " no toolbar
+    colorscheme elflord
+    set lines=60 columns=108 linespace=0
+    set guifont=Source_Code_Pro:h12:cANSI:qDRAFT
+endif
+if has('gui_win32')
+endif
 " 去掉vi一致性模式，避免以前版本的一些bug和局限
 set nocompatible
 filetype on
