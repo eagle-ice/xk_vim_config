@@ -73,7 +73,7 @@ set linebreak        " 整词换行
 set whichwrap=b,s,<,>,[,] " 光标从行首和行末时可以跳到另一行去
 set hidden " Hide buffers when they are abandoned
 
-set previewwindow    " 标识预览窗口
+" set previewwindow    " 标识预览窗口
 set history=150        " set command history to 150  历史记录50条
 "在处理未保存或只读文件时弹出确认
 set confirm

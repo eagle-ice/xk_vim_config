@@ -63,7 +63,7 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 " 如果使用 universal ctags 需要增加下面一行
 "let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " 禁用 gutentags 自动加载 gtags 数据库的行为, 避免多个项目数据库相互干扰,使用plus插件解决问题
-let g:gutentags_auto_add_gtags_cscope = 0
+let g:gutentags_auto_add_gtags_cscope = 1
 
 "P 预览 大p关闭暂时 还没搞好 先注释掉 后续在打开
 "autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr> 
