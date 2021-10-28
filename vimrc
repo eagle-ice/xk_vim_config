@@ -11,7 +11,6 @@ source ${HOME}/.vim/plugs_config/vimcdoc_conf.vim
 source ${HOME}/.vim/plugs_config/vim_git_conf.vim
 source ${HOME}/.vim/plugs_config/lsp_client_conf.vim
 source ${HOME}/.vim/plugs_config/vimcdoc_conf.vim
-source ${HOME}/.vim/plugs_config/rainbow_conf.vim
 source ${HOME}/.vim/plugs_config/nerdtree_conf.vim
 source ${HOME}/.vim/plugs_config/rainbow_conf.vim
 source ${HOME}/.vim/plugs_config/fzf_conf.vim
