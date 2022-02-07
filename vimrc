@@ -19,4 +19,6 @@ source ${HOME}/.vim/plugs_config/LeaderF_conf.vim
 source ${HOME}/.vim/plugs_config/tags_conf.vim
 source ${HOME}/.vim/plugs_config/airline_conf.vim
 source ${HOME}/.vim/plugs_config/asyncrun_conf.vim
+source ${HOME}/.vim/plugs_config/easy_motion.vim
+source ${HOME}/.vim/plugs_config/vim-bracketed-paste_conf.vim
 call plug#end()
