@@ -1,6 +1,6 @@
 Plug 'mbbill/undotree'
 if has("persistent_undo")
-   let target_path = expand('~/.undodir')
+   let target_path = expand('~/.cache/undodir')
 
     " create the directory and any parent directories
     " if the location does not exist.

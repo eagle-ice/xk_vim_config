@@ -20,6 +20,7 @@ source ${HOME}/.vim/plugs_config/tags_conf.vim
 source ${HOME}/.vim/plugs_config/airline_conf.vim
 source ${HOME}/.vim/plugs_config/asyncrun_conf.vim
 source ${HOME}/.vim/plugs_config/easy_motion.vim
-source ${HOME}/.vim/plugs_config/vim-bracketed-paste_conf.vim
+"source ${HOME}/.vim/plugs_config/vim-bracketed-paste_conf.vim
+source ${HOME}/.vim/plugs_config/vim-easycomplete_conf.vim
 source ${HOME}/.vim/plugs_config/undotree_conf.vim
 call plug#end()
