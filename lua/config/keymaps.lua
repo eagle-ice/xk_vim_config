@@ -22,3 +22,19 @@ for char, maps in pairs(wrap_pairs) do
   vim.keymap.set("v", key, maps.visual, { desc = "Wrap selection with " .. char, silent = true })
   vim.keymap.set("n", key, maps.normal, { desc = "Wrap word with " .. char, silent = true })
 end
+
+-- Search in current file → Location List（LazyVim 默认无等价映射）
+vim.keymap.set("n", "<leader>fw", function()
+  local word = vim.fn.expand("<cword>")
+  if word == "" then
+    return
+  end
+  vim.fn.setreg("/", word)
+  vim.cmd.lvimgrep("/" .. word .. "/", "%")
+  vim.cmd.lw()
+end, { desc = "Search word in buffer (loclist)" })
+
+vim.keymap.set("n", "<leader>fs", function()
+  vim.cmd.lvimgrep("//", "%")
+  vim.cmd.lw()
+end, { desc = "Search last pattern in buffer (loclist)" })
