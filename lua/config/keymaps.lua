@@ -38,3 +38,15 @@ vim.keymap.set("n", "<leader>fs", function()
   vim.cmd.lvimgrep("//", "%")
   vim.cmd.lw()
 end, { desc = "Search last pattern in buffer (loclist)" })
+
+-- Right-click paste from system clipboard (+ register; WSL uses win32yank)
+vim.keymap.set("n", "<RightMouse>", '"+p', { desc = "Paste (right click)" })
+vim.keymap.set("v", "<RightMouse>", '"+p', { desc = "Paste (right click)" })
+vim.keymap.set("i", "<RightMouse>", function()
+  return vim.fn.pumvisible() == 1 and "<C-y>" or "<C-r>+"
+end, { expr = true, desc = "Paste (right click)" })
+
+-- Paste in command-line: `:` ex commands and `/` `?` search (mode "c")
+vim.keymap.set("c", "<RightMouse>", "<C-r>+", { desc = "Paste in cmdline" })
+vim.keymap.set("c", "<S-Insert>", "<C-r>+", { desc = "Paste in cmdline" })
+vim.keymap.set("c", "<C-S-v>", "<C-r>+", { desc = "Paste in cmdline" })
